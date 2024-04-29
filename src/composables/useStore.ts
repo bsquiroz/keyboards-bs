@@ -19,21 +19,13 @@ export const useStore = () => {
 
     if (!keyboardFound.value) return;
 
+    if (validationStock()) return alert("No tenemos mas en stock");
+
     const keyboardCartIndex = ref(
       cart.value.findIndex(
         (keyboard) => keyboard.id === keyboardFound.value!.id
       )
     );
-
-    const keyboardInStock = keyboards.value.find(
-      (item) => item.id === keyboardFound.value!.id
-    );
-
-    if (
-      keyboardInStock &&
-      keyboardFound.value.amount! >= keyboardInStock?.stock
-    )
-      return alert("no hay mas");
 
     if (keyboardCartIndex.value === -1) {
       cart.value.push({
@@ -49,6 +41,18 @@ export const useStore = () => {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart.value));
+
+    function validationStock() {
+      const keyboardInStock = keyboards.value.find(
+        (item) => item.id === keyboardFound.value!.id
+      );
+
+      const keyboardInCart = cart.value.find(
+        (item) => item.id === keyboardFound.value!.id
+      );
+
+      return keyboardInCart?.amount! >= keyboardInStock?.stock!;
+    }
   };
 
   const restCart = (idKeyboard: number) => {
