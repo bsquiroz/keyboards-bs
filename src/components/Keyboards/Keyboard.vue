@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useStore } from "../../composables/useStore";
+
 interface Props {
   id: number;
   name: string;
@@ -6,6 +8,8 @@ interface Props {
   price: number;
 }
 defineProps<Props>();
+
+const { addCart } = useStore();
 </script>
 <template>
   <div class="p-4 group rounded-md">
@@ -19,7 +23,7 @@ defineProps<Props>();
       <p class="color--primary font-extrabold text-xl">{{ price }}.00 USD</p>
       <div class="flex gap-4 justify-between">
         <button class="underline hover:color--primary">Ver mas</button>
-        <button>
+        <button @click="() => addCart(id)">
           <i class="bx bx-plus-circle text-2xl hover:color--primary"></i>
         </button>
       </div>

@@ -4,7 +4,8 @@ export interface IKeyboard {
   imageList: string;
   imageModal: string;
   price: number;
-  amount: number;
+  stock: number;
   title: string;
   description: string;
+  amount?: number;
 }
