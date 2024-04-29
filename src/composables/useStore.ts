@@ -1,5 +1,5 @@
 import dataKeyboard from "../assets/keyboard.json";
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 
 import { IKeyboard } from "../interfaces";
 
@@ -40,8 +40,6 @@ export const useStore = () => {
       );
     }
 
-    localStorage.setItem("cart", JSON.stringify(cart.value));
-
     function validationStock() {
       const keyboardInStock = keyboards.value.find(
         (item) => item.id === keyboardFound.value!.id
@@ -56,24 +54,22 @@ export const useStore = () => {
   };
 
   const restCart = (idKeyboard: number) => {
-    const keyboardFound = findItem(idKeyboard);
+    const keyboardCart = cart.value.find((item) => item.id === idKeyboard);
 
-    if (!keyboardFound.value) return;
+    if (!keyboardCart) return;
 
-    if (keyboardFound.value.amount === 1) {
-      deleteCart(keyboardFound.value?.id);
+    if (keyboardCart.amount === 1) {
+      deleteCart(idKeyboard);
     } else {
-      keyboardFound.value.amount!--;
+      cart.value = cart.value.map((item) =>
+        item.id === idKeyboard ? { ...item, amount: item.amount! - 1 } : item
+      );
     }
-
-    localStorage.setItem("cart", JSON.stringify(cart.value));
   };
 
   const deleteCart = (idKeyboard: number) => {
     const indexDelete = cart.value.findIndex(({ id }) => id === idKeyboard);
     cart.value.splice(indexDelete, 1);
-
-    localStorage.setItem("cart", JSON.stringify(cart.value));
   };
 
   const infoCart = computed(() => {
@@ -91,6 +87,10 @@ export const useStore = () => {
         totalPrice: 0,
       }
     );
+  });
+
+  watch(cart, () => localStorage.setItem("cart", JSON.stringify(cart.value)), {
+    deep: true,
   });
 
   return {
