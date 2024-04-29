@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { useStore } from "../../composables/useStore";
 import { IKeyboard } from "../../interfaces";
 
 defineProps<IKeyboard>();
+
+const { addCart, restCart, deleteCart } = useStore();
 </script>
 
 <template>
@@ -14,12 +17,12 @@ defineProps<IKeyboard>();
 
     <div class="col-span-2">
       <p>{{ name }}</p>
-      <p>{{ price }}.00 USD | Total: 100</p>
+      <p>{{ price }} USD - Total: {{ price * amount! }} USD</p>
       <p class="flex gap-2 items-center">
-        <i class="bx bx-minus"></i>
+        <i class="bx bx-minus" @click="() => restCart(id)"></i>
         <span>{{ amount }}</span>
-        <i class="bx bx-plus"></i>
-        <i class="bx bx-trash"></i>
+        <i class="bx bx-plus" @click="() => addCart(id)"></i>
+        <i class="bx bx-trash" @click="() => deleteCart(id)"></i>
       </p>
     </div>
   </article>
