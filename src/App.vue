@@ -2,9 +2,11 @@
 import Layout from "./components/Layout/Layout.vue";
 import Banner from "./components/Banner/Banner.vue";
 import Keyboards from "./components/Keyboards/Keyboards.vue";
+import Cart from "./components/Cart/Cart.vue";
 </script>
 
 <template>
+  <Cart />
   <Banner />
   <Layout>
     <Keyboards />

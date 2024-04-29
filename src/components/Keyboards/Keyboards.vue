@@ -1,15 +1,8 @@
 <script lang="ts" setup>
-import { ref, onMounted } from "vue";
+import { useStore } from "../../composables/useStore";
 import Keyboard from "./Keyboard.vue";
 
-import dataKeyboards from "../../assets/keyboard.json";
-import { IKeyboard } from "../../interfaces";
-
-const keyboards = ref<IKeyboard[]>([]);
-
-onMounted(() => {
-  keyboards.value = dataKeyboards;
-});
+const { keyboards } = useStore();
 </script>
 
 <template>
