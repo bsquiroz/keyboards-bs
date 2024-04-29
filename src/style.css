@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --color-primary: #c40c0c;
+    --color-primary: orange;
   }
 
   .color--primary {
@@ -13,5 +13,9 @@
 
   .bg--primary {
     background-color: var(--color-primary);
+  }
+
+  .bx {
+    cursor: pointer;
   }
 }

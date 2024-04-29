@@ -2,13 +2,11 @@
 
 <template>
   <section
-    class="relative h-[60vh] bg-[url('/images/banner2.jfif')] bg-no-repeat bg-cover bg-center bg-fixed overflow-hidden"
+    class="relative min-h-[60vh] bg-[url('/images/banner2.jfif')] bg-no-repeat bg-cover bg-center bg-fixed overflow-hidden"
   >
     <div class="absolute inset-0 bg-black/70"></div>
 
-    <section
-      class="text-white relative max-w-5xl m-auto p-5 min-h-screen pt-20"
-    >
+    <section class="text-white relative max-w-5xl m-auto p-5 pt-20">
       <div class="flex flex-col gap-5">
         <a class="font-bold text-2xl" href="#"
           >kEYBOARD <span class="color--primary">BS</span></a
