@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1001,
+    "name": "keyboard 1",
+    "imageList": "/images/teclado1-list.png",
+    "imageModal": "/images/teclado1.jfif",
+    "price": 100,
+    "amount": 12,
+    "title": "Teclado Compacto del 70% en Acero Inoxidable",
+    "description": "Sumérgete en una experiencia de escritura inigualable con nuestro teclado mecánico compacto del 70%, meticulosamente diseñado en acero inoxidable. Equipado con interruptores mecánicos premium de [insertar marca], ofrece retroalimentación táctil y pulsaciones precisas para una experiencia de escritura en español incomparable."
+  },
+  {
+    "id": 1002,
+    "name": "keyboard 2",
+    "imageList": "/images/teclado2-list.png",
+    "imageModal": "/images/teclado2.jfif",
+    "price": 200,
+    "amount": 15,
+    "title": "Teclado de Lujo del 80% con Construcción de Aluminio",
+    "description": "Eleva tu espacio de trabajo con nuestro lujoso teclado mecánico del 80%, que cuenta con un elegante chasis de aluminio. Diseñado para usuarios de habla hispana, presume de interruptores mecánicos de [insertar marca] para una escritura receptiva y durabilidad."
+  },
+  {
+    "id": 1003,
+    "name": "keyboard 3",
+    "imageList": "/images/teclado3-list.png",
+    "imageModal": "/images/teclado3.jfif",
+    "price": 150,
+    "amount": 7,
+    "title": "Exquisito Teclado de Tamaño Completo con Acabado en Mármol",
+    "description": "Haz una declaración con nuestro exquisito teclado mecánico de tamaño completo, adornado con un impresionante acabado en mármol. Diseñado para usuarios de habla hispana, ofrece una experiencia de escritura táctil con interruptores mecánicos de [insertar marca] y una construcción duradera."
+  },
+  {
+    "id": 1004,
+    "name": "keyboard 4",
+    "imageList": "/images/teclado4-list.png",
+    "imageModal": "/images/teclado4.jfif",
+    "price": 210,
+    "amount": 13,
+    "title": "Teclado Premium del 60% encajado en Madera para Escribir en Español",
+    "description": "Abraza la elegancia con nuestro teclado mecánico premium del 60% encajado en madera de alta calidad. Diseñado para mecanógrafos en español, cuenta con interruptores mecánicos de [insertar marca] para pulsaciones precisas y una experiencia de escritura táctil."
+  }
+]
