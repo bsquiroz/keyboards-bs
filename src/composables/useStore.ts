@@ -9,6 +9,8 @@ const keyboards = ref<IKeyboard[]>(
 
 const cart = ref<IKeyboard[]>(JSON.parse(localStorage.getItem("cart")!) || []);
 
+const keyboardSelect = ref<IKeyboard>();
+
 function findItem(id: number) {
   return ref(keyboards.value.find((keyboard) => keyboard.id === id));
 }
@@ -118,6 +120,13 @@ export const useStore = () => {
     );
   });
 
+  const handleShowModalKeyboard = (id?: number) => {
+    if (!id) return (keyboardSelect.value = undefined);
+
+    const keyboard = keyboards.value.find((keyboard) => keyboard.id === id);
+    keyboardSelect.value = keyboard;
+  };
+
   watch(cart, () => localStorage.setItem("cart", JSON.stringify(cart.value)), {
     deep: true,
   });
@@ -130,5 +139,7 @@ export const useStore = () => {
     buyCart,
     cart,
     infoCart,
+    keyboardSelect,
+    handleShowModalKeyboard,
   };
 };

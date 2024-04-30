@@ -10,7 +10,7 @@ interface Props {
 }
 defineProps<Props>();
 
-const { addCart } = useStore();
+const { addCart, handleShowModalKeyboard } = useStore();
 </script>
 <template>
   <div class="p-4 group rounded-md">
@@ -28,7 +28,12 @@ const { addCart } = useStore();
       <h3 class="text-2xl">{{ name }}</h3>
       <p class="color--primary font-extrabold text-xl">{{ price }}.00 USD</p>
       <div class="flex gap-4 justify-between">
-        <button class="underline hover:color--primary">Ver mas</button>
+        <button
+          class="underline hover:color--primary"
+          @click="() => handleShowModalKeyboard(id)"
+        >
+          Ver mas
+        </button>
         <button v-if="stock" @click="() => addCart(id)">
           <i class="bx bx-plus-circle text-2xl hover:color--primary"></i>
         </button>
