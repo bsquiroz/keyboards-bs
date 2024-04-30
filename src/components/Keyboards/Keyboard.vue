@@ -6,6 +6,7 @@ interface Props {
   name: string;
   imageList: string;
   price: number;
+  stock: number;
 }
 defineProps<Props>();
 
@@ -13,11 +14,16 @@ const { addCart } = useStore();
 </script>
 <template>
   <div class="p-4 group rounded-md">
-    <img
-      class="group-hover:-translate-y-5 transition-transform dark:bg-slate-950"
-      :src="imageList"
-      :alt="name"
-    />
+    <figure class="relative">
+      <img
+        class="group-hover:-translate-y-5 transition-transform dark:bg-slate-950"
+        :src="imageList"
+        :alt="name"
+      />
+      <div class="absolute left-3 bottom-3 font-extrabold color--primary">
+        <span>en stock {{ stock }}</span>
+      </div>
+    </figure>
     <div class="p-4 dark:bg-slate-900">
       <h3 class="text-2xl">{{ name }}</h3>
       <p class="color--primary font-extrabold text-xl">{{ price }}.00 USD</p>

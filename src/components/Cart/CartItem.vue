@@ -20,7 +20,7 @@ const { addCart, restCart, deleteCart } = useStore();
       <p>{{ price }} USD - Total: {{ price * amount! }} USD</p>
       <p class="flex gap-2 items-center">
         <i class="bx bx-minus" @click="() => restCart(id)"></i>
-        <span>{{ amount }}</span>
+        <span class="font-extrabold color--primary">{{ amount }}</span>
         <i class="bx bx-plus" @click="() => addCart(id)"></i>
         <i class="bx bx-trash" @click="() => deleteCart(id)"></i>
       </p>

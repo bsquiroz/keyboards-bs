@@ -19,6 +19,7 @@ const { keyboards } = useStore();
         :name="keyboard.name"
         :imageList="keyboard.imageList"
         :price="keyboard.price"
+        :stock="keyboard.stock"
       />
     </section>
   </section>

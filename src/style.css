@@ -7,6 +7,10 @@
     --color-primary: orange;
   }
 
+  html {
+    user-select: none;
+  }
+
   .color--primary {
     color: var(--color-primary);
   }
