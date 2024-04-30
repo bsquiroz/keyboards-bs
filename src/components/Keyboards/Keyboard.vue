@@ -29,9 +29,10 @@ const { addCart } = useStore();
       <p class="color--primary font-extrabold text-xl">{{ price }}.00 USD</p>
       <div class="flex gap-4 justify-between">
         <button class="underline hover:color--primary">Ver mas</button>
-        <button @click="() => addCart(id)">
+        <button v-if="stock" @click="() => addCart(id)">
           <i class="bx bx-plus-circle text-2xl hover:color--primary"></i>
         </button>
+        <span v-else class="text-sm font-extrabold text-red-500">SALE</span>
       </div>
     </div>
   </div>

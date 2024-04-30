@@ -68,8 +68,37 @@ export const useStore = () => {
   };
 
   const deleteCart = (idKeyboard: number) => {
+    const res = confirm("Seguro quieres eliminar este producto?");
+    if (!res) return;
+
     const indexDelete = cart.value.findIndex(({ id }) => id === idKeyboard);
     cart.value.splice(indexDelete, 1);
+  };
+
+  const buyCart = () => {
+    const res = confirm("Seguro quieres hacer la compra?");
+    if (!res) return;
+
+    const cartObj = cart.value.reduce((ac: Record<number, IKeyboard>, cu) => {
+      ac[cu.id] = { ...cu };
+      return ac;
+    }, {});
+
+    keyboards.value = keyboards.value.map((keyboard) => {
+      const keyBoardId = keyboard.id;
+
+      return keyBoardId === cartObj[keyBoardId]?.id
+        ? {
+            ...keyboard,
+            stock: keyboard.stock - cartObj[keyBoardId].amount!,
+          }
+        : keyboard;
+    });
+
+    cart.value = [];
+
+    localStorage.setItem("cart", JSON.stringify(cart.value));
+    localStorage.setItem("keyboards", JSON.stringify(keyboards.value));
   };
 
   const infoCart = computed(() => {
@@ -98,6 +127,7 @@ export const useStore = () => {
     addCart,
     restCart,
     deleteCart,
+    buyCart,
     cart,
     infoCart,
   };

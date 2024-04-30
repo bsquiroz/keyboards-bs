@@ -3,7 +3,7 @@ import { ref, computed } from "vue";
 import { useStore } from "../../composables/useStore";
 import CartItem from "./CartItem.vue";
 
-const { cart, infoCart } = useStore();
+const { cart, infoCart, buyCart } = useStore();
 
 const isOpenCart = ref(false);
 
@@ -41,7 +41,10 @@ const stylesCart = computed(() => ({
             {{ infoCart.totalItem === 1 ? "Articulo" : "Articulos" }}
           </p>
         </div>
-        <button class="bg--primary p-5 rounded-md font-bold text-2xl">
+        <button
+          class="bg--primary p-5 rounded-md font-bold text-2xl"
+          @click="buyCart"
+        >
           Comprar
         </button>
       </div>
